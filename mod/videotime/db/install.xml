@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/videotime/db" VERSION="20191015" COMMENT="XMLDB file for URL module"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="videotime" COMMENT="each record is one Video Time module">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="course" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="intro" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="introformat" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="vimeo_url" TYPE="text" NOTNULL="true" SEQUENCE="false"/>
+        <FIELD NAME="video_description" TYPE="text" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="video_description_format" TYPE="int" LENGTH="4" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="timemodified" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completion_on_view_time" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completion_on_view_time_second" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false"/>
+        <FIELD NAME="completion_on_finish" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+        <FIELD NAME="completion_on_percent" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Completion on watch time percentage"/>
+        <FIELD NAME="completion_on_percent_value" TYPE="int" LENGTH="3" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Percentage value 0-100"/>
+        <FIELD NAME="autoplay" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Automatically start playback of the video. Note that this won’t work on some devices."/>
+        <FIELD NAME="byline" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Show the byline on the video."/>
+        <FIELD NAME="color" TYPE="char" LENGTH="15" NOTNULL="true" DEFAULT="00adef" SEQUENCE="false" COMMENT="Specify the color of the video controls. Colors may be overridden by the embed settings of the video."/>
+        <FIELD NAME="height" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="The exact height of the video. Defaults to the height of the largest available version of the video."/>
+        <FIELD NAME="maxheight" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Same as height, but video will not exceed the native size of the video."/>
+        <FIELD NAME="maxwidth" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Same as width, but video will not exceed the native size of the video."/>
+        <FIELD NAME="muted" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Mute this video on load. Required to autoplay in certain browsers."/>
+        <FIELD NAME="playsinline" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Play video inline on mobile devices, to automatically go fullscreen on playback set this parameter to false."/>
+        <FIELD NAME="portrait" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Show the portrait on the video."/>
+        <FIELD NAME="speed" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0" SEQUENCE="false" COMMENT="Show the speed controls in the preferences menu and enable playback rate API (available to PRO and Business accounts)."/>
+        <FIELD NAME="title" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="Show the title on the video."/>
+        <FIELD NAME="transparent" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false" COMMENT="The responsive player and transparent background are enabled by default, to disable set this parameter to false."/>
+        <FIELD NAME="width" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="The exact width of the video. Defaults to the width of the largest available version of the video."/>
+        <FIELD NAME="responsive" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="1" SEQUENCE="false"/>
+        <FIELD NAME="label_mode" TYPE="int" LENGTH="1" NOTNULL="false" DEFAULT="0" SEQUENCE="false" COMMENT="If true than video will be embedded in the course page."/>
+        <FIELD NAME="viewpercentgrade" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="If true sync view percentage to student grade"/>
+        <FIELD NAME="next_activity_button" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Enable the next activity button"/>
+        <FIELD NAME="next_activity_id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="CM ID of next activity. -1 is next activity in course."/>
+        <FIELD NAME="next_activity_auto" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Go to the next activity automatically if available."/>
+        <FIELD NAME="resume_playback" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="If the video should resume where the user left off."/>
+        <FIELD NAME="preview_picture" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Preview image type"/>
+        <FIELD NAME="show_description" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Show description in preview mode."/>
+        <FIELD NAME="show_title" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Show title in preview mode."/>
+        <FIELD NAME="show_tags" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Show tags in preview mode."/>
+        <FIELD NAME="show_duration" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Show duration in preview mode."/>
+        <FIELD NAME="show_viewed_duration" TYPE="int" LENGTH="1" NOTNULL="false" SEQUENCE="false" COMMENT="Show view duration in preview mode."/>
+        <FIELD NAME="columns" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" COMMENT="Number of columns the video will be displayed within preview mode."/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="course" UNIQUE="false" FIELDS="course"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>

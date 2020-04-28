@@ -1,0 +1,15 @@
+{{#instance}}
+    <div id="next-activity-button">
+        {{{next_activity_button_html}}}
+    </div>
+
+    <div {{^responsive}}class="vimeo-container justify-content-center"{{/responsive}}>
+        <div class="vimeo-intro">
+            {{{intro}}}
+        </div>
+        <div data-vimeo-url="{{vimeo_url}}" id="vimeo-embed-{{cmid}}"></div>
+        <div class="vimeo-video-description">
+            {{{video_description}}}
+        </div>
+    </div>
+{{/instance}}
